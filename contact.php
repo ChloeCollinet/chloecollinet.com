@@ -7,8 +7,6 @@ $ mail = $ _POST [ 'email' ];
 $ subject = $ _POST [ 'subject' ];
 $ message = $ _POST [ 'message' ];
 $ to = $ youremail ;
-$ headers   = 'Version MIME: 1.0' . "\ r \ n" ;
-$ headers . = 'Content-type: text / html; jeu de caractères = UTF-8 ' . "\ r \ n" ;
 $ headers . = "De:" . $ _POST [ 'nom' ]. "<" . $ _POST [ 'email' ]. "> \ r \ n" ;
 $ headers . = "Répondre à:" . $ _POST [ "email" ]. "\ r \ n" ;
 $ mailsubject = 'Message reçu pour' . $ fromsubject . «Page de contact» ;
