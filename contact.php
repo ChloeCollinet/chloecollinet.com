@@ -1,88 +1,41 @@
 <?php
-						// define variables and set to empty values
-						$nameErr = $emailErr = $phoneErr = $inquiryErr = "";
-						$name = $email = $phone = $inquiry = $email_message = "";
-						$submitted = 0;
+  /**
+  * Requires the "PHP Email Form" library
+  * The "PHP Email Form" library is available only in the pro version of the template
+  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
+  * For more info and help: https://bootstrapmade.com/php-email-form/
+  */
 
-						if ($_SERVER["REQUEST_METHOD"] == "POST") {
-						   if (empty($_POST["name"])) {
-							 $nameErr = "Name is required";
-						   } else {
-							 $name = clean_data($_POST["name"]);
-							 $fill["name"] = $name;
-							 // check if name only contains letters and whitespace
-							 if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-							   $nameErr = "Only letters and white space allowed"; 
-							 }
-						   }
-						   
-						   if (empty($_POST["email"])) {
-							 $emailErr = "Email is required";
-						   } else {
-							 $email = clean_data($_POST["email"]);
-							 $fill["email"] = $email;
-							 // check if e-mail address is well-formed
-							 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-							   $emailErr = "Invalid email format"; 
-							 }
-						   }
-							
-						   if (empty($_POST["inquiry"])) {
-							 $inquiryErr = "You Cannot Submit an Empty Inquiry";
-						   } else {
-							 $inquiry = clean_data($_POST["inquiry"]);
-							 $fill["inquiry"] = $inquiry;
-						   }
-						}
+  // Replace contact@example.com with your real receiving email address
+  $receiving_email_address = 'webdesign@chloecollinet.com';
 
-						function clean_data($data) {
-							// Strip whitespace (or other characters) from the beginning and end of string
-							$data = trim($data);
-							// Un-quotes quoted string
-							$data = stripslashes($data);
-							// Convert special characters to HTML entities
-							$data = htmlspecialchars($data);
-							return $data;
-						}
-						// Send email if no errors
-						if (isset($fill)) {
-							if (empty($nameErr) && empty($emailErr) && empty($phoneErr) && empty($inquiryErr)) {
-								// Inquiry sent from address below
-								
-								
-								// Send form contents to address below
-								$email_to = "webdesign@chloecollinet.com";
-								
-								// Email message subject
-								$today = date("j F, Y. H:i:s");
-								$email_subject = "Website Submission [$today]";
-								
-								function clean_string($string) {
+  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
+    include( $php_email_form );
+  } else {
+    die( 'Impossible to load the "PHP Email Form" Library!');
+  }
 
-									$bad = array("content-type","bcc:","to:","cc:","href");
+  $contact = new PHP_Email_Form;
+  $contact->ajax = true;
+  
+  $contact->to = $receiving_email_address;
+  $contact->from_name = $_POST['name'];
+  $contact->from_email = $_POST['email'];
+  $contact->subject = $_POST['subject'];
 
-									return str_replace($bad,"",$string);
+  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
+  /*
+  $contact->smtp = array(
+    'host' => 'example.com',
+    'username' => 'example',
+    'password' => 'pass',
+    'port' => '587'
+  );
+  */
 
-								}
+  $contact->add_message( $_POST['name'], 'From');
+  $contact->add_message( $_POST['email'], 'Email');
+  $contact->add_message( $_POST['message'], 'Message', 10);
 
-								$email_message .= "Name: ".clean_string($name)."\n";
-
-								$email_message .= "Email: ".clean_string($email)."\n";
-
-								
-
-								
-								
-								// create email headers
-								$headers = 'From: '.$email_from."\r\n".
-								 
-								'Reply-To: '.$email_from."\r\n" .
-								 
-								'X-Mailer: PHP/' . phpversion();
-								 
-								@mail($email_to, $email_subject, $email_message, $headers);
-								
-								$submitted = 1;
-							}
-						}
-					?>
+  echo $contact->send();
+?>
