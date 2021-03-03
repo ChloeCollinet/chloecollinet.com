@@ -3,12 +3,12 @@ if ( isset ( $ _POST [ 'soumettre' ])) {
 $ youremail = 'webdesign@chloecollinet.com' ;
 $ fromsubject = 'Formulaire de contact' ;
 $ name = $ _POST [ 'nom' ];
-$ mail = $ _POST [ 'email' ];
+$ email = $ _POST [ 'email' ];
 $ subject = $ _POST [ 'subject' ];
 $ message = $ _POST [ 'message' ];
 $ to = $ youremail ;
 $ headers . = "De:" . $ _POST [ 'nom' ]. "<" . $ _POST [ 'email' ]. "> \ r \ n" ;
-$ headers . = "Répondre à:" . $ _POST [ "email" ]. "\ r \ n" ;
+$ headers . = "Répondre à:" . $ _POST [ 'email' ]. "\ r \ n" ;
 $ mailsubject = 'Message reçu pour' . $ fromsubject . «Page de contact» ;
 $ body = $ fromsubject . '
 	
