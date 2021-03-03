@@ -1,41 +1,50 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'webdesign@chloecollinet.com';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Impossible to load the "PHP Email Form" Library!');
-  }
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+if(!empty($_POST))
+{
+    $errors = array();
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+    if(empty($_POST['name']))
+    {
+        $errors['name'] = "Le champ du nom ne peut pas-être vide";
+    }
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+    if(empty($_POST['email']))
+    {
+        $errors['email'] = "Le champ du prénom ne peut pas-être vide";
+    }
 
-  echo $contact->send();
+    if(empty($_POST['subject']))
+    {
+        $errors['subject'] = "Le champ du téléphone ne peut pas-être vide";
+    }
+
+    if(empty($_POST['message']))
+    {
+        $errors['message'] = "Le champ de l'email ne peut pas-être vide";
+    }
+
+
+    if(count($errors) == 0)
+    {
+        header ("Location: contact.php");
+        exit();
+    }
+
+}
+
+$courriel = 'webdesign@chloecollinet.com';
+$courriel2 = 'e-mail valide';
+
+if (filter_var($courriel, FILTER_VALIDATE_EMAIL)) {
+    echo "L'adresse email '$courriel' est considérée comme valide.";
+}
+if (filter_var($courriel2, FILTER_VALIDATE_EMAIL)) {
+    echo "L'adresse email '$courriel2' est considérée comme valide.";
+} else {
+    echo "L'adresse email '$courriel2' est considérée comme invalide.";
+}
+
 ?>
