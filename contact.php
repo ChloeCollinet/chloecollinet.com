@@ -1,27 +1,29 @@
-<? php  session_start ();
-if ( isset ( $ _POST [ 'soumettre' ])) {
-$ youremail = 'webdesign@chloecollinet.com' ;
-$ fromsubject = 'Formulaire de contact' ;
-$ name = $ _POST [ 'nom' ];
-$ email = $ _POST [ 'email' ];
-$ subject = $ _POST [ 'subject' ];
-$ message = $ _POST [ 'message' ];
-$ to = $ youremail ;
-$ headers . = "De:" . $ _POST [ 'nom' ]. "<" . $ _POST [ 'email' ]. "> \ r \ n" ;
-$ headers . = "Répondre à:" . $ _POST [ 'email' ]. "\ r \ n" ;
-$ mailsubject = 'Message reçu pour' . $ fromsubject . «Page de contact» ;
-$ body = $ fromsubject . '
+<?php session_start();
+if(isset($_POST['submit'])) {
+$youremail = 'webdesign@chloecollinet.com';
+$fromsubject = 'Contact Form';
+$name = $_POST['name'];
+$mail = $_POST['email'];
+$subject = $_POST['subject']; 
+$message = $_POST['message']; 
+$to = $youremail; 
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type:text/html; charset=UTF-8' . "\r\n";
+$headers .= "From: ".$_POST['name']."<".$_POST['email'].">\r\n"; 
+$headers .= "Reply-To: ".$_POST['email']."\r\n";
+$mailsubject = 'Messsage recived for'.$fromsubject.' Contact Page';
+$body = $fromsubject.'
 	
-	La personne qui vous a contacté est ' . $ nom . '
-	 E-mail: ' . $ mail . '
-	 Objet: ' . $ sujet . '
+	The person that contacted you is  '.$name.'
+	 E-mail: '.$mail.'
+	 Subject: '.$subject.'
 	
-	 Un message: 
-	 » . $ message . '	
-	| --------- FIN DU MESSAGE ---------- | ' ;
-echo  "Merci pour vos commentaires. Je vous contacterai sous peu si nécessaire. <br/> Aller à la <a href='/index.html'> page d'accueil </a>" ;
-								mail ( $ to , $ subject , $ body , $ headers );
-} else {
-echo  "Vous devez rédiger un message. </br> Veuillez vous rendre sur la <a href='/index.html'> Page d'accueil </a>" ;
+	 Message: 
+	 '.$message.'	
+	|---------END MESSAGE----------|'; 
+echo "Thank you fo your feedback. I will contact you shortly if needed.<br/>Go to <a href='/index.html'>Home Page</a>"; 
+								mail($to, $subject, $body,$headers);
+ } else { 
+echo "You must write a message. </br> Please go to <a href='/index.html'>Home Page</a>"; 
 }
 ?> 
