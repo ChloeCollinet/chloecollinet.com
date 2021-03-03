@@ -48,10 +48,10 @@
 						if (isset($fill)) {
 							if (empty($nameErr) && empty($emailErr) && empty($phoneErr) && empty($inquiryErr)) {
 								// Inquiry sent from address below
-								$email_from = "no-reply@emailadress.com";
+								
 								
 								// Send form contents to address below
-								$email_to = "info@emailadress.com";
+								$email_to = "webdesign@chloecollinet.com";
 								
 								// Email message subject
 								$today = date("j F, Y. H:i:s");
@@ -69,9 +69,9 @@
 
 								$email_message .= "Email: ".clean_string($email)."\n";
 
-								$email_message .= "Phone: ".clean_string($phone)."\n";
+								
 
-								$email_message .= "Inquiry: ".clean_string($inquiry)."\n";
+								
 								
 								// create email headers
 								$headers = 'From: '.$email_from."\r\n".
