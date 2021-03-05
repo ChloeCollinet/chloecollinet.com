@@ -493,11 +493,11 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
   }
   #hero h1 {
-    font-size: 50px;
+    font-size: 45px;
     line-height: 75px;
   }
   #hero h2 {
-    font-size: 32px;
+    font-size: 27px;
     line-height: 24px;
   }
 }
