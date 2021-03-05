@@ -441,7 +441,6 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 992px) {
   #hero .container {
     padding-top: 58px;
-      font-family: Hlad;
   }
 }
 
@@ -496,12 +495,14 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
   }
   #hero h1 {
-    font-size: 56px;
+    font-size: 50px;
     line-height: 72px;
+      font-family: Hlad;
   }
   #hero h2 {
-    font-size: 35px;
+    font-size: 32px;
     line-height: 24px;
+      font-family: Hlad;
   }
 }
 
