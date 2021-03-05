@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: Hlad, 'Cormorant', serif;
+    font-family: Hlad, "Cormorant", serif;
     color: #444444;
     font-weight: lighter;
     font-size: large;
@@ -27,7 +27,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Hlad;
+    font-family: Hlad, "Cormorant";
 }
 
 #main {
