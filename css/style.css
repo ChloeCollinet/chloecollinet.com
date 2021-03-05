@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: Hlad, "Shippori Mincho", serif;
+    font-family: Hlad, "Cormorant", serif;
     color: #444444;
     font-weight: lighter;
     font-size: large;
@@ -27,7 +27,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Hlad, "Shippori Mincho";
+    font-family: Hlad, "Cormorant";
 }
 
 #main {
@@ -438,7 +438,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 992px) {
   #hero .container {
     padding-top: 58px;
-      height: 70%;
+      height: 75%;
   }
 }
 
