@@ -490,7 +490,6 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     right: 0;
-      font-family: 'Cormorant', serif;
   }
   #hero h1 {
     font-size: 50px;
@@ -586,6 +585,7 @@ section {
 @media (max-width: 1024px) {
   .cta {
     background-attachment: scroll;
+      font-family: 'Cormorant', serif;
   }
 }
 
@@ -594,6 +594,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+      font-family: 'Cormorant', serif;
   }
 }
 
