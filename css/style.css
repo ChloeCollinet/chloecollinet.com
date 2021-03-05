@@ -42,13 +42,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
-@media (max-width: 992px){
-    body {
-       font-family: 'Cormorant', serif;
-    }
-} 
-
 @media (max-width: 992px) {
   #main {
     margin-top: 30px;
@@ -409,14 +402,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-mobile .dropdown ul li {
   min-width: 200px;
+    font-family: 'Cormorant', serif;
 }
 
 .navbar-mobile .dropdown ul a {
   padding: 10px 20px;
+    font-family: 'Cormorant', serif;
 }
 
 .navbar-mobile .dropdown ul a i {
   font-size: 12px;
+    font-family: 'Cormorant', serif;
 }
 
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
