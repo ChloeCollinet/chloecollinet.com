@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: Hlad;
+    font-family: Hlad, Cormorant, serif;
     color: #444444;
     font-weight: lighter;
     font-size: large;
@@ -585,7 +585,6 @@ section {
 @media (max-width: 1024px) {
   .cta {
     background-attachment: scroll;
-      font-family: 'Cormorant', serif;
   }
 }
 
@@ -594,7 +593,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-      font-family: 'Cormorant', serif;
   }
 }
 
