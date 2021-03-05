@@ -456,7 +456,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-about {
-    font-family: Hlad;
+    font-family: Hlad, "Cormorant";
     text-transform: uppercase;
     font-weight: 600;
     font-size: 12px;
