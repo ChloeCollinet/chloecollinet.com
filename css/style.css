@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-@media {
+@media (max-width: 992px){
     body {
        font-family: 'Cormorant', serif;
     }
