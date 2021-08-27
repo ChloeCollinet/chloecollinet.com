@@ -45,6 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 992px) {
   #main {
     margin-top: 30px;
+    font-familiy: Hlad;  
    
   }
 }
@@ -1153,11 +1154,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #34b7a7;
+  border: 1px solid #325C6C;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #34b7a7;
+  background-color: #325C6C;
 }
 
 .portfolio-details .portfolio-info {
